@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './componets/Header/Header.jsx';
 import Navbar from './componets/Navbar/Navbar.jsx';
 import './App.css';
 import News from './componets/News/News.jsx';
@@ -9,13 +8,14 @@ import UsersContainer from './componets/Users/UsersContainer';
 import {  Route } from 'react-router-dom';
 import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import ProfileContainer from './componets/Profile/ProfileContainer';
+import HeaderContainer from './componets/Header/HeaderContainer.jsx';
 
 
 const App = (props) => {
 
   return (
   <div className="app-wrapper"> 
-<Header />
+<HeaderContainer />
 <Navbar />
 <div className="app-wrapper-content">
 <Route path='/dialogs' render={()=><DialogsContainer />}/>
