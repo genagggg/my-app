@@ -4,6 +4,7 @@ import { follow, setCurrentPage, setUsers, setTotalUsersCount, toggleIsFetching,
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { usersAPI } from '../../api/api';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component{
   
@@ -49,7 +50,9 @@ let mapStateToProps = (state) => {
     
 }
 
-export default connect(mapStateToProps, {
+
+
+export default withAuthRedirect(connect(mapStateToProps, {
 follow,
 
 unfollow,
@@ -65,6 +68,6 @@ toggleIsFetching,
 toggleFollowingProgress,
 
 getUsers: getUsers
-})(UsersContainer);
+})(UsersContainer));
  
  
