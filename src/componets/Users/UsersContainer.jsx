@@ -68,8 +68,7 @@ export default compose(connect(mapStateToProps, {
   toggleFollowingProgress,
   
   getUsers: getUsers
-  }),
-  withAuthRedirect
+  })
 ) (UsersContainer);
  
  
