@@ -22,7 +22,7 @@ class ProfileContainer extends React.Component {
 }
 
 render(){
-     
+    // console.log("RENDER PROFILE")
 	 return <Profile {...this.props}
 	  profile={this.props.profile} 
 	  status={this.props.status} 
@@ -31,12 +31,15 @@ render(){
 	}
 }
 
-let mapStateToProps=(state)=>({
+let mapStateToProps=(state)=>{
+	//console.log('mapStateToProps Profile')
+	return ({
 	profile: state.profilePage.profile,
 	status: state.profilePage.status,
 	authorizedUserId:state.auth.userId,
 	isAuth: state.auth.isAuth
 });
+}
 
 export default compose(
 	connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
