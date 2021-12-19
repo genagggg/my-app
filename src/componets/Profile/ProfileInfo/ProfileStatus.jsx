@@ -30,10 +30,10 @@ componentDidUpdate(prevProps, prevState){
     this.setState({
      status: this.props.status
  })
-    console.log(this.componentDidUpdate)
+    
 }
 render(){   
-    console.log(this.render) 
+    
 return(
 <div>
    {!this.state.editMode && <div>

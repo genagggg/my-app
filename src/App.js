@@ -1,3 +1,6 @@
+import {Provider} from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/redux-store';
 import React from 'react';
 import Navbar from './componets/Navbar/Navbar.jsx';
 import './App.css';
@@ -52,7 +55,16 @@ const mapStateToProps=(state)=>({
   initialized: state.app.initialized
 })
 
-export default compose(
+let AppContainer = compose(
   withRouter, 
   connect(mapStateToProps, {initializeApp} ))(App);
 
+  const SamuraiJsApp=(props)=>{
+    return <BrowserRouter>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+    </BrowserRouter>
+  }
+
+  export default SamuraiJsApp;
