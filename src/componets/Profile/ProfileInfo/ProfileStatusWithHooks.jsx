@@ -12,12 +12,11 @@ useEffect(()=>{
 }, [props.status])
 
   const activateEditMode =()=>{
-    console.log("huy");
+    
 setEditMode(true);
 }
 
 const deactivateEditMode=()=>{
-    console.log('deactivate');
 setEditMode(false);
 props.updateStatus(status)
 
@@ -29,7 +28,7 @@ setStatus(e.currentTarget.value);
 return(
 <div>
    { !editMode && <div>
-        <span onDoubleClick={activateEditMode}>{props.status || "-----"}</span>
+       <b>Статус:</b> <span onDoubleClick={activateEditMode}>{props.status || "-----"}</span>
     </div>}
    {editMode && <div>
         <input  

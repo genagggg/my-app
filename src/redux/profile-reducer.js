@@ -90,4 +90,12 @@ export const savePhoto=(file)=>async(dispatch)=>{
   }
 }
 
+export const saveProfile=(profile)=>async(dispatch)=>{
+  let response= await profileApi.saveProfile(profile);
+
+  if(response.data.resultCode===0){
+    dispatch(response.data.data.photos);
+  }
+}
+
 export default profileReducer;
