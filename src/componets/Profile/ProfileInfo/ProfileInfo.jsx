@@ -21,16 +21,17 @@ if(e.target.files.length){
 }
   }
 
-  const onSubmit=(formData)=>{
- saveProfile(formData);
-  }
+  const onSubmit=async(formData)=>{
+ await saveProfile(formData);
+    setEditMode(false);
+ }
 
 	return (<div>
             <div className={s.descriptionBlock}>
              <img src={profile.photos.large || userPhoto} className={s.mainPhoto}/>
              {isOwner && <input type="file" onChange={mainPhotoSelected}/>}
              
-             {editMode ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
+             {editMode ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
               : <ProfileData goToEditMode={()=>{setEditMode(true)}} profile={profile} isOwner={isOwner}/>}
 
              <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
