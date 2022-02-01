@@ -1,5 +1,5 @@
 import {Provider} from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import store from './redux/redux-store';
 import React from 'react';
 import Navbar from './componets/Navbar/Navbar.jsx';
@@ -8,7 +8,7 @@ import News from './componets/News/News.jsx';
 import Music from './componets/Music/Music.jsx';
 import Setting from './componets/Setting/Setting.jsx';
 import UsersContainer from './componets/Users/UsersContainer';
-import {  Route, withRouter } from 'react-router-dom';
+import {  Route, withRouter, Redirect } from 'react-router-dom';
 import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import ProfileContainer from './componets/Profile/ProfileContainer';
 import HeaderContainer from './componets/Header/HeaderContainer.jsx';
@@ -36,6 +36,9 @@ if(!this.props.initialized){
 <HeaderContainer />
 <Navbar />
 <div className="app-wrapper-content">
+<Switch>
+  <Route exact path='/'
+  render={()=><Redirect to={"/profile"}/>}/>
 <Route path='/dialogs' render={()=><DialogsContainer />}/>
 <Route path='/profile/:userId?' render={()=><ProfileContainer />}/>
 <Route path='/news' render={()=><News />} />
@@ -43,6 +46,9 @@ if(!this.props.initialized){
 <Route path='/setting' render={()=><Setting />} />
 <Route path='/users' render={()=><UsersContainer />} />
 <Route path='/login' render={()=><Login />} />
+<Route path='*'
+render={()=><div>404 NOT FOUND</div>} />
+</Switch>
 </div>
 
   </div>
